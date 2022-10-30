@@ -30,18 +30,19 @@
     }
   }
   &__aside {
-    background-color: red;
-
-    @include breakpoint(medium) {
-      background-color: var(--purple-color);
-    }
-
-    @include breakpoint(large) {
-      background-color: var(--purple-color);
-    }
-
     @include breakpoint-down(medium) {
       text-align: center;
+    }
+  }
+
+  &__widget {
+    padding: rem(16);
+
+    &.green {
+      background-color: green;
+    }
+    &.magenta {
+      background-color: magenta;
     }
   }
 }
