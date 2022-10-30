@@ -1,21 +1,47 @@
+@use '../util' as *;
+
 .grid {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
-  gap: 40px;
+  gap: rem(20);
+  max-width: min(100% - rem(40), rem(1000));
+  margin-inline: auto;
 
-  @media (min-width: 900px) {
+  @include breakpoint(large) {
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto;
   }
 
   &__main,
   &__aside {
-    padding: 40px;
+    padding: rem(40);
   }
 
   &__main {
     background-color: blue;
+
+    @include breakpoint(medium) {
+      background-color: var(--orange-color);
+    }
+
+    @include breakpoint(large) {
+      background-color: var(--purple-color);
+    }
   }
   &__aside {
     background-color: red;
+
+    @include breakpoint(medium) {
+      background-color: var(--purple-color);
+    }
+
+    @include breakpoint(large) {
+      background-color: var(--purple-color);
+    }
+
+    @include breakpoint-down(medium) {
+      text-align: center;
+    }
   }
 }
